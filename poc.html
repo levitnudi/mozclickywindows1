@@ -1,0 +1,68 @@
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid green;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+input[type=text]:focus {
+  border: 3px solid green;
+}
+
+mark {
+  background-color: yellow;
+  color: black;
+}
+</style>
+
+</head>
+
+<body onload="init()">
+  
+    <center><h3 id="title" style="margin-top:10px;"><mark>Click here with the mouse repeatedly</mark></h3></center>
+         
+          <input type="text" class="input-box" style="height:10000px;width:10000px;" id="address" name="address" list="idres" onclick="inputClick()" value="" autocomplete="on" placeholder="Click Here Fast" /> 
+        
+ <datalist id="idres">
+  <option value="Dummy Address Test"></option>
+ </datalist>		
+    
+    <script>
+ 
+     var count = 0;
+     var address = document.getElementById("address");
+     var title = document.getElementById("title");
+     
+     function init(){
+      window.scrollTo(0, 0);
+     }
+     
+    function inputClick(){
+        window.scrollTo(0, 0);
+    }
+     
+     
+    var timer = setInterval(function() {
+          if(address.value !=="" && address.value !=="Click Here Fast"){
+              alert("Your Physical Address Was Leaked Here -> "+address.value);
+          }else if(address.value =="Click Here Fast"){
+            count++;
+            title.innerHTML = "How Fast Can You Click Me? - Click The Green Box Below ("+count+" points)";
+          }
+	        address.value = "";
+	        address.focus();
+	   
+    }, 10);
+    </script>
+</body>
+
+</html>
