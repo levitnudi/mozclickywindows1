@@ -22,6 +22,21 @@ mark {
   background-color: yellow;
   color: black;
 }
+
+
+ #address {
+  width: 120px;
+  height: 120px;
+  background: lightcoral;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease;
+}
+
+.move-down {
+  transform: translateY(100px); /* move down 100px */
+}
 </style>
 
 </head>
@@ -56,12 +71,16 @@ mark {
               alert("Your Physical Address Was Leaked Here -> "+address.value);
           }else if(address.value =="Click Here Fast"){
             count++;
-            title.innerHTML = "Click here with the mouse repeatedly ("+count+" points)";
+            title.innerHTML = "On Your Keyboard Press Down Arrow + Enter Repeatedly ("+count+" points)";
           }
 	        address.value = "";
 	        address.focus();
 	   
     }, 10);
+    
+  setTimeout(() => {
+   window.scrollTo(0, document.body.scrollHeight);
+  }, 50);
     </script>
 </body>
 
